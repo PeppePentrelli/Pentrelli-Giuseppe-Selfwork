@@ -1,0 +1,24 @@
+.disappearText {
+
+    background-color: blue;
+    color: yellow;
+}
+
+.strongText {
+    font-weight: bold;
+    color: whitesmoke;
+    background-color: red;
+}
+
+
+.classe2 {
+
+    font-weight: bold;
+
+}
+
+.classe3 {
+
+    display: none;
+
+}
