@@ -1,60 +1,41 @@
-
-// Primo Bottone 
-
-let changeColor = document.querySelector('.changeColor')
-changeColor.addEventListener('click', () => {
-    function coloriCasuali() {
-        let rosso = Math.floor(Math.random() * 255 + 1);
-        let verde = Math.floor(Math.random() * 255 + 1);
-        let blu = Math.floor(Math.random() * 255 + 1);
-        return `rgb(${rosso}, ${verde}, ${blu})`;
-
-    }
-
-    let paragrafi = document.querySelectorAll('p');
-
-    paragrafi.forEach(p => {
-        p.style.color = coloriCasuali();
-        changeColor.style.backgroundColor = coloriCasuali();
-        changeColor.style.color = coloriCasuali();
+let buttonCustom = document.querySelector('#buttonCustom')
+let textAreaCustom = document.querySelector('#textAreaCustom')
+let inputCustom = document.querySelector('#inputCustom')
 
 
-
-    });
-});
+buttonCustom.addEventListener('click', () => {
 
 
-// Secondo bottone
+    
+    if (textAreaCustom.value !== '' && inputCustom.value !== '' ) {
+    
+        let paragrafo = document.createElement('p')
+        let textArea = textAreaCustom.value
+        let titolo = inputCustom.value
+            console.log(textAreaCustom.value);
+            console.log(inputCustom.value);
+            let date = new Date();
+            let formatDate = date.toLocaleDateString()
 
 
-let check = false
-let strongText = document.querySelector('.strongText')
-strongText.addEventListener('click', () => {
+        
+            let content = ` Titolo: ${titolo} <br> ${textArea} 
+<br> ${formatDate}`;
+            console.log(content);
+            paragrafo.innerHTML = content;
+            document.body.appendChild(paragrafo)
+        textAreaCustom.value = ''
+        inputCustom.value = ''
 
-    paragrafi.forEach(p => {
-
-        p.classList.toggle('classe2')
-
-
-
-    })
-})
+    } else if (textAreaCustom.value === '' && inputCustom.value === '' ) {
 
 
-// Terzo bottone : fa scomparire il testo
+        alert('Devi inserire un titolo e un testo per creare un paragrafo')
+ 
+       
+    } 
 
-let paragrafi = document.querySelectorAll('p')
-let disappearText = document.querySelector('.disappearText')
+}
 
-disappearText.addEventListener('click', () => {
-
-
-    paragrafi.forEach(p => {
-
-        p.classList.toggle('classe3')
-
-    });
-
-
-})
+)
 
