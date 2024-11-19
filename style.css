@@ -1,20 +1,110 @@
-h1{ color: whitesmoke;}
+main{ 
+    display: flex;
+    height: 900px;
+    width: 900px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
 
-.cornice { 
-    height: max-content;
-    width: max-content;
-    background: red;
+ 
+}
 
+.cinturino-superiore{ 
+
+    width: 200px;
+    height: 50px;
+    background-color: #C8CED4;
+    border: solid 2px black;
 
 
 }
 
-input { display: block;
-margin-bottom: 15px ;}
+
+.cinturino-posteriore{ 
+
+    width: 200px;
+    height: 50px;
+    background-color: #C8CED4;
+    border: solid 2px black;
 
 
-button{ display: block;
-    margin-top: 15px;
-    background-color: whitesmoke;
-    color: red;
 }
+
+
+.cassa-orologio { 
+
+    width: 300px;
+    height: 300px;
+    background-color: #C8CED4;
+    border: solid 2px black;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 30px;
+
+
+}
+
+.btn1 {
+
+    height: 15px;
+  
+
+}
+
+
+.quadrante-orologio {
+flex-direction: column;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
+
+  
+}
+
+.scritta-sup{
+    display: flex;
+flex-direction: row;
+    border-bottom: solid 2px whitesmoke;
+    color: whitesmoke;
+}
+
+
+.scritta-post{
+    display: flex;
+flex-direction: row;
+    border-top: solid 2px whitesmoke;
+    color: whitesmoke;
+    background-color: blue;
+}
+
+.scritta-post-2{
+    display: flex;
+flex-direction: row;
+    border-top: solid 2px whitesmoke;
+    color: #5A283F;
+}
+
+p{ color: gold;}
+
+h5{ color: }
+
+
+.display{ 
+
+    color: whitesmoke;
+ text-align: center;
+ font-size: 30px;
+ border: solid 2px white;
+ background-color:#9DA395 ;
+ color: black;
+ font-family: "Doto", sans-serif;
+ font-weight: 900;
+    
+}
+
+.changeDisplay{ 
+    display: none;
+}
+

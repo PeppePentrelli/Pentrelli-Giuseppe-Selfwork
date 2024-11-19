@@ -1,41 +1,47 @@
-let buttonCustom = document.querySelector('#buttonCustom')
-let textAreaCustom = document.querySelector('#textAreaCustom')
-let inputCustom = document.querySelector('#inputCustom')
+let chronoInput = document.querySelector('#chronoInput');
+let btnStartCustom = document.querySelector('#btnStartCustom');
+let btnPauseCustom = document.querySelector('#btnPauseCustom');
+let btnRestartCustom = document.querySelector('#btnRestartCustom');
+let display = document.querySelector('#display');
+let errorMessage = document.querySelector('#errorMessage'); 
+let on = document.querySelector('#on')
+
+let intervallo;
+let secondiRimasti;
 
 
-buttonCustom.addEventListener('click', () => {
 
+btnStartCustom.addEventListener('click', () => {
+    secondiRimasti = parseInt(chronoInput.value);
 
-    
-    if (textAreaCustom.value !== '' && inputCustom.value !== '' ) {
-    
-        let paragrafo = document.createElement('p')
-        let textArea = textAreaCustom.value
-        let titolo = inputCustom.value
-            console.log(textAreaCustom.value);
-            console.log(inputCustom.value);
-            let date = new Date();
-            let formatDate = date.toLocaleDateString()
+    if (secondiRimasti > 0) { 
+        clearInterval(intervallo); 
+        intervallo = setInterval(() => {
+            secondiRimasti--;
+            display.textContent = secondiRimasti;
+            if (secondiRimasti === 0) {
+                clearInterval(intervallo);
+                display.textContent = '00.00';
+            }
+        }, 1000);
 
+    } else {
+        errorMessage.textContent = "inserisci i secondi con un numero intero positivo";
+    }
+});
 
-        
-            let content = ` Titolo: ${titolo} <br> ${textArea} 
-<br> ${formatDate}`;
-            console.log(content);
-            paragrafo.innerHTML = content;
-            document.body.appendChild(paragrafo)
-        textAreaCustom.value = ''
-        inputCustom.value = ''
+btnPauseCustom.addEventListener('click', () => {
+    clearInterval(intervallo);
+});
 
-    } else if (textAreaCustom.value === '' && inputCustom.value === '' ) {
+btnRestartCustom.addEventListener('click', () => {
+    clearInterval(intervallo);
+    chronoInput.value = '';
+    display.textContent = '0';
+    secondiRimasti = 0;
 
+});
 
-        alert('Devi inserire un titolo e un testo per creare un paragrafo')
- 
-       
-    } 
+prova = document.querySelector('.prova')
 
-}
-
-)
 
