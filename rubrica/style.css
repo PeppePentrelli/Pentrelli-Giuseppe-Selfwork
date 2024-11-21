@@ -1,0 +1,144 @@
+:root { 
+    --cellulare--bg--color : black;
+    --bg-color : #EF3048
+} 
+
+
+.espositore{ background-image: url(media/virtual-reality-4490469_1920.jpg);
+    background-repeat: no-repeat;
+height: 200vh;
+display: flex;
+justify-content: center;
+
+}
+
+.cellulare{ 
+
+    height: 860px;
+    width: 450px;
+    background-color: black;
+    margin-top: 100px;
+    border: solid 2px white;
+    border-radius: 30px;
+    margin-left: 700px;
+ 
+}
+
+
+
+.marca{ 
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 30px;
+    color: whitesmoke;
+
+
+}
+
+.fotocamera{ height: 20px;
+    width: 20px;
+    background-image: linear-gradient(to bottom, rgb(77, 74, 74), rgb(4, 4, 4));
+    margin-bottom: 20px;
+    border-radius: 50%;
+    
+
+}
+
+.menu-superiore{ 
+    display: flex;
+    justify-content:space-around;
+    position: relative;
+z-index: 100;
+color: whitesmoke;
+}
+
+
+span{ 
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.span-2{ 
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+
+.audio{
+    
+    margin: 0px;}
+
+    .menu-inferiore {
+
+        color: whitesmoke;
+        display: flex;
+        justify-content: space-around;
+        height: max-content;
+        align-content: center;
+    margin-top: 7px;
+    }
+
+
+    img {
+        width: 446px;
+        height:700px ;
+        
+
+      }
+
+      .rubricaIcon {
+        position: absolute;
+        bottom: 70px; 
+        left: 1100px; 
+        z-index: 1; 
+        height: 100px;
+width: 100px;
+      }
+
+
+      .card{
+        box-shadow: 2px 2px 5px black, -2px -2px 5px black;
+        height: 50px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 15px;
+    }
+    
+    
+    .iconTrash, .editIcon{ 
+    
+        cursor: pointer;
+        color: white;
+    }
+    
+    
+    
+  button{  color: rgb(255, 255, 255);
+    background-color: #05115B;
+border: solid 2px rgb(248, 246, 251);
+
+}
+
+
+    .display {
+
+        height: 700px;
+        background-image: url(media/sfondo.jpg);
+    }
+
+
+    h1{ color: whitesmoke;}
+
+    p{ color: rgb(255, 255, 255);
+    background-color: #05115B;
+border: solid 2px rgb(248, 246, 251);
+margin-top: 20px;
+
+}
+
