@@ -89,14 +89,7 @@ span{
 
       }
 
-      .rubricaIcon {
-        position: absolute;
-        bottom: 70px; 
-        left: 1100px; 
-        z-index: 1; 
-        height: 100px;
-width: 100px;
-      }
+
 
 
       .card{
@@ -135,10 +128,18 @@ border: solid 2px rgb(248, 246, 251);
 
     h1{ color: whitesmoke;}
 
-    p{ color: rgb(255, 255, 255);
+    p, #campoAllert{ color: rgb(255, 255, 255);
     background-color: #05115B;
 border: solid 2px rgb(248, 246, 251);
 margin-top: 20px;
 
 }
+
+#campoAllert {
+
+    background-color: #05115B;
+    height: 30px;
+    
+
+ }
 

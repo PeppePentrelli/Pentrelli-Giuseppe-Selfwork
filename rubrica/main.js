@@ -5,8 +5,8 @@ let inputName = document.querySelector('#inputName');
 let inputNumber = document.querySelector('#inputNumber');
 let contacts_wrapper = document.querySelector('#contacts_wrapper')
 let check = false
-
-
+let btnDeleatContacts = document.querySelector('#btnDeleatContacts')
+let btnEditContacts = document.querySelector('#btnEditContacts')
 
 
 
@@ -15,7 +15,6 @@ function aggiornaOrologio() {
   const ora = new Date();
   const oraFormattata = ora.toLocaleString('it-IT', { hour: 'numeric', minute: 'numeric' });
   orologio.textContent = oraFormattata;
-  meteo.textContent = oraFormattata;
 
 }
 
@@ -47,7 +46,6 @@ const rubrica = {
             div.innerHTML = `
             <p> ${contatto.nome} ${contatto.numero} </p>
             <i class=" iconTrash fa-solid fa-trash-can"></i>
-            <i class=" editIcon fa-solid fa-pencil"></i>
             `
             contacts_wrapper.appendChild(div);
 
@@ -58,39 +56,45 @@ const rubrica = {
         iconsTrash.forEach((icon, i) => {
             icon.addEventListener('click', () => {
                 this.contatti.splice(i, 1);
+campoAllert.innerHTML= `contatto eliminato`
+
                 this.mostraContatti();
             });
         });
 
-        let editIcons = document.querySelectorAll('.editIcon')
-        editIcons.forEach((icon, i) => {
-            icon.addEventListener('click', () => {
-                let newName = prompt('inserisci nuovo nome')
-                let newNumber = prompt('inserisci nuovo numero')
-
-                if (newName && newNumber) {
-
-                    this.contatti[i].nome = newName
-                    this.contatti[i].numero = newNumber
-                    this.mostraContatti()
-
-                } else if (newName != String) {
-                    alert('devi inserire un nome')
-
-                } else if (newNumber != Number) {
-
-                        alert('devi inserire un numero')
-
-                }
-
-
-
-            });
-
-        })
-
     },
 
+
+    modificaContatto : function (newNome,newNumero) {
+
+        this.contatti.forEach((contatto) => { 
+
+            if (contatto.nome == newNome ) { 
+
+contatto.numero = newNumero
+this.mostraContatti()
+if (contatto) {
+    contatto.numero = newNumero;
+    this.mostraContatti();
+    campoAllert.innerHTML= `${contatto.nome} modificato con successo!!!`
+  }
+  
+  else if (contatto == '') {
+
+        campoAllert.innerHTML= `devi inserire un contatto per elimniarlo`
+    
+  } else if (contatto =! contatto.nome) {
+
+    campoAllert.innerHTML= "Contatto non trovato";
+  }
+
+
+
+                
+            }
+        })
+        
+    },
 
 
     aggiungiContatto: function (newName, newNumber) {
@@ -103,12 +107,37 @@ const rubrica = {
 
                 btnShowContacts.innerHTML = 'Nascondi Contatti'
                 check = true
+                campoAllert.innerHTML= `${newName} aggiunto`
 
             }
-        } else { alert('devi inserire nome e numero di telefono') }
+        } else { campoAllert.innerHTML= 'Attenzione devi inserire un nome e un numero' 
+            
+            
+
+
+        }
 
     },
 
+
+
+    rimuoviContattoInput : function(remove) {
+
+
+let filtra = this.contatti.filter(contatto => contatto.nome != remove)
+this.contatti = filtra
+
+if (remove == '') { 
+    campoAllert.innerHTML= `devi inserire un contatto per elimniarlo`
+    
+    
+} else { 
+    campoAllert.innerHTML= `${remove} eliminato`
+
+}
+
+
+    },
 
 
 
@@ -174,3 +203,33 @@ btnAddContacts.addEventListener('click', () => {
 
 
 
+
+
+btnDeleatContacts.addEventListener('click', () => {
+
+   if ( inputName != '') {
+
+    rubrica.rimuoviContattoInput(inputName.value)
+    inputName.value = ''
+    rubrica.mostraContatti();
+
+   }
+
+});
+
+
+
+btnEditContacts.addEventListener('click' ,() => { 
+
+    if (inputName.value != '') {
+        
+        rubrica.modificaContatto(inputName.value,inputNumber.value)
+        inputName.value =''
+    inputNumber.value=''
+    rubrica.mostraContatti()
+    } else { 
+    campoAllert.innerHTML= 'Attenzione devi inserire un contatto prima di modificare' 
+
+    }
+
+})
